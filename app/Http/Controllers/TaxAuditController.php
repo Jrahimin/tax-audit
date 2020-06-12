@@ -55,6 +55,7 @@ class TaxAuditController extends Controller
             'tax_amount_in_sentence' => 'required',
             'invoice_no'        => 'required',
             'register_no'       => 'required',
+            'tax_payer_type'    => 'required'
         ]);
 
         try{
@@ -66,7 +67,8 @@ class TaxAuditController extends Controller
                 'pay_date' => Carbon::parse($request->pay_date)->format('Y-m-d'),
                 'invoice_no' => $request->invoice_no,
                 'register_no' => $request->register_no,
-                'status' => 1
+                'status' => 1,
+                'tax_payer_type' => $request->tax_payer_type
             ]);
 
             flash()->success('অভিনন্দন! করদাতার চালান সফলভাবে সনযুক্ত হয়েছে');
@@ -85,9 +87,9 @@ class TaxAuditController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TaxAudit $taxAudit)
     {
-        //
+        return view('tax-audit.show', compact('taxAudit'));
     }
 
     /**
@@ -108,23 +110,25 @@ class TaxAuditController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TaxAudit $taxAudit)
     {
         $this->validate($request, [
             'tax_amount'            => 'required',
             'tax_amount_in_sentence' => 'required',
             'invoice_no'        => 'required',
             'register_no'       => 'required',
+            'tax_payer_type'    => 'required'
         ]);
 
         try{
-            TaxAudit::update([
+            $taxAudit->update([
                 'tax_amount' => $request->tax_amount,
                 'tax_amount_in_sentence' => $request->tax_amount_in_sentence,
                 'pay_date' => Carbon::parse($request->pay_date)->format('Y-m-d'),
                 'invoice_no' => $request->invoice_no,
                 'register_no' => $request->register_no,
-                'status' => 1
+                'status' => 1,
+                'tax_payer_type' => $request->tax_payer_type
             ]);
 
             flash()->success('অভিনন্দন! করদাতার চালান সফলভাবে পরিমার্জিত হয়েছে');
@@ -143,11 +147,11 @@ class TaxAuditController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TaxAudit $taxAudit)
     {
-        TaxAudit::findOrFail($id)->delete();
-
+        $taxAudit->delete();
         flash()->success('করদাতার চালান ডিলেট হয়েছে');
+
         return redirect()->back();
     }
 }

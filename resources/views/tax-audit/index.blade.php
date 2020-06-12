@@ -43,6 +43,7 @@
                             <th>করের পরিমাণ</th>
                             <th>চালান নং</th>
                             <th>রেজিস্টারভুক্তি নং</th>
+                            <th>করদাতার টাইপ</th>
                             <th>তারিখ</th>
                             <th>একশন</th>
                         </tr>
@@ -57,22 +58,21 @@
                                 <td>{{$audit->tax_amount}}</td>
                                 <td>{{$audit->invoice_no}}</td>
                                 <td>{{$audit->register_no}}</td>
+                                <td>{{$audit->tax_payer_type ?? 'n/a'}}</td>
                                 <td>{{$audit->pay_date}}</td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editAudit">এডিট</a>
-                                        </div>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editAudit-{{ $audit->id }}">এডিট</a>
                                         @include('tax-audit.edit')
-                                        <div class="col-md-4">
-                                            {{ Form::open(['route' => ['tax-audits.destroy', $audit->id], 'method' => 'delete']) }}
-                                            <button type="submit" class="btn btn-sm btn-danger confirmation">ডিলেট</button>
-                                            {{ Form::close() }}show
-                                        </div>
+                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteAudit-{{ $audit->id }}">ডিলেট</a>
+                                        {{ Form::open(['route' => ['tax-audits.show', $audit->id], 'method' => 'get']) }}
+                                        <button type="submit" class="btn btn-primary">চালান</button>
+                                        {{ Form::close() }}
                                     </div>
 
-                                    {{--<div id="deleteAudit" class="modal fade">
+                                    <div id="deleteAudit-{{ $audit->id }}" class="modal fade">
                                         <div class="modal-dialog">
+                                            {{ Form::open(['route' => ['tax-audits.destroy', $audit->id], 'method' => 'delete']) }}
                                             <div class="modal-content">
                                                 <div class="modal-header" style="background-color: indianred">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -83,12 +83,13 @@
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-danger" >হ্যাঁ {{ $audit->id }}</button>
+                                                    <button type="submit" class="btn btn-danger" >হ্যাঁ</button>
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">না</button>
                                                 </div>
                                             </div>
+                                            {{ Form::close() }}
                                         </div>
-                                    </div>--}}
+                                    </div>
 
                                 </td>
                             </tr>

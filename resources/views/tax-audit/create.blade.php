@@ -38,12 +38,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tax_amount">করের পরিয়াণ (সংখ্যায়)</label>
+                        <label for="tax_amount">করের পরিমাণ (সংখ্যায়)</label>
                         <input type="text" class="form-control" name="tax_amount" value="{{ old('tax_amount') }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="tax_amount_in_sentence">করের পরিয়াণ (কথায়)</label>
+                        <label for="tax_amount_in_sentence">করের পরিমাণ (কথায়)</label>
                         <input type="text" class="form-control" name="tax_amount_in_sentence" value="{{ old('tax_amount_in_sentence') }}">
                     </div>
 
@@ -56,6 +56,10 @@
                         <label for="register_no">রেজিস্টারভুক্তির নং</label>
                         <input type="text" class="form-control" name="register_no" value="{{ old('register_no') }}">
                     </div>
+
+                    <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১০১-আয়কর কোম্পানি">আয়কর কোম্পানি</label>
+                    <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১১১-আয়কর কোম্পানি ব্যতীত" checked>আয়কর কোম্পানি ব্যতীত</label>
+                    <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০২২১-সম্পদ কর">সম্পদ কর</label>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">সেভ</button>

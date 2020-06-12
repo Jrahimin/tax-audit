@@ -43,14 +43,14 @@
                 </div>
 
                 <div class="mt-3">
-                    <p>১-১১৪১-০০৪০-০১০১- আয়কর কোম্পানি</p>
+                    <p>{{ $taxAudit->tax_payer_type }}</p>
                     <p>....................................<span class="tiny">তারিখ অথবা ততপূর্বে দেয়া</span> <span class="tiny ml-4">মূলকপি (কর কর্মকর্তার অফিসে দিতে হইবে)</span></p>
 
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 tiny2">
-                        ১-১১৪১-০০৪০-০২২১ চালান কর
+                        {{ $taxAudit->tax_payer_type }}
                     </div>
 
                     <div class="col-md-6 tiny2">
@@ -63,7 +63,7 @@
 
                 <div class="row tiny2">
                     <div class="col-md-5">চট্টগ্রাম বাংলাদেশ ব্যাংক/সোনালী ব্যাংক শাখায়</div>
-                    <div class="col-md-2">fiscal_year</div>
+                    <div class="col-md-2">{{ $taxAudit->fiscal_year }}</div>
                     <div class="col-md-5">কর বৎসরের জন্য প্রদেয় করের চালান</div>
                 </div>
 
@@ -83,9 +83,9 @@
                     </tr>
 
                     <tr class="tiny3">
-                        <td>১১২৩২১৩১২৩১২</td>
-                        <td>মোঃ নুরুল ইসলাম <p class="mt-3">আগ্রাবাদ বা/এ, চট্টগ্রাম।</p></td>
-                        <td>টাকা ১,২০,০০,০০০/- <p>(এক কোটি বিশ লক্ষ টাকা)</p></td>
+                        <td>{{ $taxAudit->taxPayer->tin_no }}</td>
+                        <td>{{ $taxAudit->taxPayer->name }} <p class="mt-3">{{ $taxAudit->taxPayer->address }}</p></td>
+                        <td>টাকা {{ $taxAudit->tax_amount }}/- <p>({{ $taxAudit->tax_amount_in_sentence }})</p></td>
                     </tr>
 
                     <tr class="tiny2">

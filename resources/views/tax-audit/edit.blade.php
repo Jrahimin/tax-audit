@@ -1,4 +1,4 @@
-<div id="editAudit" class="modal fade">
+<div id="editAudit-{{ $audit->id }}" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,12 +16,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tax_amount">করের পরিয়াণ (সংখ্যায়)</label>
+                    <label for="tax_amount">করের পরিমাণ (সংখ্যায়)</label>
                     {{ Form::text('tax_amount', null, ['class' => 'form-control']) }}
                 </div>
 
                 <div class="form-group">
-                    <label for="tax_amount_in_sentence">করের পরিয়াণ (কথায়)</label>
+                    <label for="tax_amount_in_sentence">করের পরিমাণ (কথায়)</label>
                     {{ Form::text('tax_amount_in_sentence', null, ['class' => 'form-control']) }}
                 </div>
 
@@ -34,6 +34,10 @@
                     <label for="register_no">রেজিস্টারভুক্তির নং</label>
                     {{ Form::text('register_no', null, ['class' => 'form-control']) }}
                 </div>
+
+                <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১০১- আয়কর কোম্পানি" {{ strpos($audit->tax_payer_type, '০১০১') == true ? 'checked' : '' }}>আয়কর কোম্পানি</label>
+                <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১১১- আয়কর কোম্পানি ব্যতীত" {{ strpos($audit->tax_payer_type, '০১১১') == true ? 'checked' : '' }}>আয়কর কোম্পানি ব্যতীত</label>
+                <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০২২১-সম্পদ কর" {{ strpos($audit->tax_payer_type, '০২২১') == true ? 'checked' : '' }}>সম্পদ কর</label>
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="আপডেট">
