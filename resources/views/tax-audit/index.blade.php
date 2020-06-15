@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            @include('tax-audit.filter')
+            @include('tax-audit.layouts.filter')
         </div>
 
         <div class="col-md-12">
@@ -62,12 +62,15 @@
                                 <td>{{$audit->pay_date}}</td>
                                 <td>
                                     <div class="btn-group">
+
                                         <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editAudit-{{ $audit->id }}">এডিট</a>
                                         @include('tax-audit.edit')
-                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteAudit-{{ $audit->id }}">ডিলেট</a>
+
                                         {{ Form::open(['route' => ['tax-audits.show', $audit->id], 'method' => 'get']) }}
-                                        <button type="submit" class="btn btn-primary">চালান</button>
+                                        <button type="submit" class="btn btn-info" formtarget="_blank">চালান</button>
                                         {{ Form::close() }}
+
+                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteAudit-{{ $audit->id }}">ডিলেট</a>
                                     </div>
 
                                     <div id="deleteAudit-{{ $audit->id }}" class="modal fade">
