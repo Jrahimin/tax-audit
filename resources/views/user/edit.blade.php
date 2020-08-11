@@ -20,11 +20,11 @@
                         <input type="text" class="form-control" v-model="aUser.mobile_no">
                     </div>
                     <div class="form-group">
-                        <label for="address">Type</label>
+                        {{--<label for="address">Type</label>
                         <select class="form-control" v-model="aUser.type">
                             <option value="user" :selected="aUser.type=='user'">User</option>
                             <option value="admin" :selected="aUser.type=='admin'">Admin</option>
-                        </select>
+                        </select>--}}
                         <div class="form-group">
                             <label for="address">Mobile No</label>
                             <input type="text" class="form-control" v-model="aUser.address">

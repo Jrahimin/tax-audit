@@ -132,15 +132,9 @@
 
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li><a href="{{ route('users.index') }}"><i class="fa fa-users" aria-hidden="true"></i><span>ইউজার</span></a></li>
-{{--                <li><a href="{{route('item-categories.index')}}"><i class="fa fa-list" aria-hidden="true"></i><span>আইটেম ক্যাটাগরি</span></a></li>
-                <li><a href="{{route('items.index')}}"><i class="fa fa-product-hunt" aria-hidden="true"></i><span>আইটেম</span></a></li>
-                <li><a href="{{ route('stocks.index') }}"><i class="fa fa-address-book" aria-hidden="true"></i><span>স্টক</span></a></li>
-                <li><a href="{{ route('vehicle.index') }}"><i class="fa fa-car" aria-hidden="true"></i><span>গাড়ি</span></a></li>
-                <li><a href="{{ route('customers.index') }}"><i class="fa fa-user" aria-hidden="true"></i><span>ক্রেতা</span></a></li>
-                <li><a href="{{ route('sales.index') }}"><i class="fa fa-cart-plus" aria-hidden="true"></i><span>বিক্রয়</span></a></li>
-                <li><a href="{{ route('memo_list') }}"><i class="fa fa-file" aria-hidden="true"></i><span>মেমো</span></a></li>
-                <li><a href="{{ route('route_report') }}"><i class="fa fa-info" aria-hidden="true"></i><span>রুট মাফিক মেমো</span></a></li>--}}
+                <li><a href="{{ route('users.index') }}"><i class="fa fa-users" aria-hidden="true"></i><span>এডমিন</span></a></li>
+                <li><a href="{{ route('tax-payers.index') }}"><i class="fa fa-user" aria-hidden="true"></i><span>করদাতা</span></a></li>
+                <li><a href="{{ route('tax-audits.index') }}"><i class="fa fa-book" aria-hidden="true"></i><span>কর চালানপত্র</span></a></li>
             </ul>
         </section>
     </aside>

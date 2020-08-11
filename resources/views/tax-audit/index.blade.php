@@ -43,6 +43,7 @@
                             <th>করের পরিমাণ</th>
                             <th>চালান নং</th>
                             <th>রেজিস্টারভুক্তি নং</th>
+                            <th>পে অর্ডার/চেক নং</th>
                             <th>করদাতার টাইপ</th>
                             <th>তারিখ</th>
                             <th>একশন</th>
@@ -58,6 +59,7 @@
                                 <td>{{$audit->tax_amount}}</td>
                                 <td>{{$audit->invoice_no}}</td>
                                 <td>{{$audit->register_no}}</td>
+                                <td>{{$audit->cheque_no}}</td>
                                 <td>{{$audit->tax_payer_type ?? 'n/a'}}</td>
                                 <td>{{$audit->pay_date}}</td>
                                 <td>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
-use App\Traits\ApiResponseTrait;
+use App\Http\Traits\ApiResponseTrait;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;

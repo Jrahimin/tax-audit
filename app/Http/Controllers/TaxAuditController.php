@@ -48,15 +48,7 @@ class TaxAuditController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'tax_payer_id'      => 'required|integer',
-            'fiscal_year'       => 'required',
-            'tax_amount'            => 'required',
-            'tax_amount_in_sentence' => 'required',
-            'invoice_no'        => 'required',
-            'register_no'       => 'required',
-            'tax_payer_type'    => 'required'
-        ]);
+        $this->validate($request, $this->generateValidationArray(true));
 
         try{
             TaxAudit::create([
@@ -67,6 +59,7 @@ class TaxAuditController extends Controller
                 'pay_date' => Carbon::parse($request->pay_date)->format('Y-m-d'),
                 'invoice_no' => $request->invoice_no,
                 'register_no' => $request->register_no,
+                'cheque_no' => $request->cheque_no,
                 'status' => 1,
                 'tax_payer_type' => $request->tax_payer_type
             ]);
@@ -112,13 +105,7 @@ class TaxAuditController extends Controller
      */
     public function update(Request $request, TaxAudit $taxAudit)
     {
-        $this->validate($request, [
-            'tax_amount'            => 'required',
-            'tax_amount_in_sentence' => 'required',
-            'invoice_no'        => 'required',
-            'register_no'       => 'required',
-            'tax_payer_type'    => 'required'
-        ]);
+        $this->validate($request, $this->generateValidationArray());
 
         try{
             $taxAudit->update([
@@ -127,6 +114,7 @@ class TaxAuditController extends Controller
                 'pay_date' => Carbon::parse($request->pay_date)->format('Y-m-d'),
                 'invoice_no' => $request->invoice_no,
                 'register_no' => $request->register_no,
+                'cheque_no' => $request->cheque_no,
                 'status' => 1,
                 'tax_payer_type' => $request->tax_payer_type
             ]);
@@ -153,5 +141,25 @@ class TaxAuditController extends Controller
         flash()->success('করদাতার চালান ডিলেট হয়েছে');
 
         return redirect()->back();
+    }
+
+    protected function generateValidationArray($isStore=false)
+    {
+        $validationList = array(
+            'tax_amount_in_sentence' => 'required',
+            'tax_amount'     => 'required',
+            'invoice_no'     => 'required',
+            'register_no'    => 'required',
+            'cheque_no'      => 'required',
+            'tax_payer_type' => 'required'
+        );
+
+        if($isStore)
+            $validationList = array_merge($validationList, [
+                'tax_payer_id' => 'required|integer',
+                'fiscal_year'  => 'required',
+            ]);
+
+        return $validationList;
     }
 }

@@ -22,6 +22,7 @@ class CreateTaxInvoicesTable extends Migration
             $table->date('pay_date');
             $table->string('invoice_no',64);
             $table->string('register_no',64);
+            $table->string('cheque_no',32);
             $table->string('tax_payer_type');
             $table->tinyInteger('status')->nullable();
             $table->timestamps();

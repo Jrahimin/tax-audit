@@ -1,18 +1,14 @@
-@extends('layouts.app_v2')
-
-@section('content')
-    <div class="col-md-10">
-        <div class="panel">
-            <div class="panel-heading">
-                করদাতা পূরণ
+<div id="createTaxPayer" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">করদাতা পূরণ</h4>
             </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: scroll">
 
-            <div class="panel-body">
                 <form method="POST" action="{{ route('tax-payers.store') }}">
                     @csrf
-
-                    @include('flash::message')
-                    @include('layouts.validation')
 
                     <div class="form-group">
                         <label for="name">নাম</label>
@@ -36,5 +32,4 @@
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-@endsection
+</div>

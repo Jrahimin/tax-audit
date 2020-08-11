@@ -13,14 +13,14 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        if(!User::first()){
+        if(!User::where('email', 'admin@gmail.com')->first()){
             User::create([
                 'name' => "admin",
                 'email' => "admin@gmail.com",
                 'email_verified_at' => now(),
                 'mobile_no' => '01846999999',
                 'type' => "admin",
-                'password' => bcrypt('12345'),
+                'password' => bcrypt('Password@1'),
                 'remember_token' => Str::random(10),
             ]);
         }

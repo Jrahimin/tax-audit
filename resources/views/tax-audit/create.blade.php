@@ -57,6 +57,11 @@
                         <input type="text" class="form-control" name="register_no" value="{{ old('register_no') }}">
                     </div>
 
+                    <div class="form-group">
+                        <label for="cheque_no">পে অর্ডার/চেক নং</label>
+                        <input type="text" class="form-control" name="cheque_no" value="{{ old('cheque_no') }}">
+                    </div>
+
                     <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১০১-আয়কর কোম্পানি">আয়কর কোম্পানি</label>
                     <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১১১-আয়কর কোম্পানি ব্যতীত" checked>আয়কর কোম্পানি ব্যতীত</label>
                     <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০২২১-সম্পদ কর">সম্পদ কর</label>

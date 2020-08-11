@@ -23,14 +23,14 @@
                         <label for="mobile_no">Mobile No</label>
                         <input type="text" class="form-control" v-model="newUser.mobile_no">
                     </div>
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label for="address">Type</label>
                         <select class="form-control" v-model="newUser.type">
                             <option value="">-- Select Type --</option>
                             <option value="user" >User</option>
                             <option value="admin">Admin</option>
                         </select>
-                    </div>
+                    </div>--}}
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" v-model="newUser.address">

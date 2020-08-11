@@ -1,6 +1,6 @@
 <div class="row tiny3">
     <div class="col-md-6 text-center">
-        পে.অর্ডার/চেক নং- ১০১০১০১০
+        পে.অর্ডার/চেক নং- {{ $taxAudit->cheque_no }}
         <p class="mt-1">ব্যাংক- সোনালী ব্যাংক লিঃ</p>
     </div>
 

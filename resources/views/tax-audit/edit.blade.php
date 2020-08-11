@@ -35,6 +35,11 @@
                     {{ Form::text('register_no', null, ['class' => 'form-control']) }}
                 </div>
 
+                <div class="form-group">
+                    <label for="cheque_no">পে অর্ডার/চেক নং</label>
+                    {{ Form::text('cheque_no', null, ['class' => 'form-control']) }}
+                </div>
+
                 <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১০১- আয়কর কোম্পানি" {{ strpos($audit->tax_payer_type, '০১০১') == true ? 'checked' : '' }}>আয়কর কোম্পানি</label>
                 <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০১১১- আয়কর কোম্পানি ব্যতীত" {{ strpos($audit->tax_payer_type, '০১১১') == true ? 'checked' : '' }}>আয়কর কোম্পানি ব্যতীত</label>
                 <label class="radio-inline"><input type="radio" name="tax_payer_type" value="১-১১৪১-০০৪০-০২২১-সম্পদ কর" {{ strpos($audit->tax_payer_type, '০২২১') == true ? 'checked' : '' }}>সম্পদ কর</label>

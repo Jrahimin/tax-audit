@@ -22,7 +22,6 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Type</th>
                             <th>Email</th>
                             <th>MobileNo</th>
                             <th>Address</th>
@@ -36,7 +35,6 @@
                         <tbody>
                         <tr v-for="user in users" >
                             <td>@{{ user.name }}</td>
-                            <td>@{{ user.type }}</td>
                             <td>@{{ user.email }} </td>
                             <td>@{{ user.mobile_no }}</td>
                             <td>@{{ user.address }}</td>
