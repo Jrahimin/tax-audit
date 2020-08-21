@@ -29,7 +29,7 @@ class UserStoreRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'mobile_no' => 'required',
-            'type' => 'required',
+            //'type' => 'required',
             'password' => 'required|min:5'
         ];
     }

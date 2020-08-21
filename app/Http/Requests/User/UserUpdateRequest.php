@@ -29,7 +29,7 @@ class UserUpdateRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'mobile_no' => 'required',
-            'type' => 'required',
+            //'type' => 'required',
         ];
     }
 

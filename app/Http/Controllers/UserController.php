@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserTypes;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Http\Traits\ApiResponseTrait;
@@ -23,7 +24,7 @@ class UserController extends Controller
             if(!$request->wantsJson())
                 return view('user.index');
 
-            $users = User::paginate(2);
+            $users = User::paginate(10);
 
             return $this->successResponse($users);
         }
@@ -52,10 +53,11 @@ class UserController extends Controller
     public function store(UserStoreRequest $request) //php artisan make:request User/UserStoreRequest
     {
         try{
-            if(auth()->user()->type != 'admin')
+            if(auth()->user()->type != UserTypes::ADMIN)
                 return $this->exceptionResponse('You are not allowed to update user',401);
 
             $request['password'] = bcrypt($request->password);
+            $request['type'] = UserTypes::ADMIN;
             User::create($request->all());
 
             return $this->successResponseWithMsg('User Registered Successfully');

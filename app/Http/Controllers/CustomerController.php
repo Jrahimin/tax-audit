@@ -23,7 +23,7 @@ class CustomerController extends Controller
 
             if(!$request->wantsJson())
                 return view('customer.index');
-            $customers = Customer::paginate(2);
+            $customers = Customer::paginate(10);
 
             return $this->successResponse($customers);
 
